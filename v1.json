@@ -2,32 +2,45 @@
   "version": "1.0",
   "assistantName": "Diamant Assistant",
   "thinkingDelayMs": 1200,
+  "safetyFilter": {
+    "enabled": true,
+    "blockedKeywords": [
+      "porno", "pornografia", "sexo", "sexual", "desnudo", "hot", "erotico",
+      "arma", "armas", "pistola", "revolver", "fusil", "bomba", "explosivo", "droga", "drogas", "cocaína", "marihuana",
+      "suicidio", "matar", "gore", "sangre", "violencia"
+    ],
+    "blockResponses": [
+      "Alto ahí, bro. No puedo investigar sobre ese tema por seguridad en duix.",
+      "Ese tema está bloqueado en Diamant Assistant, mejor hablemos de otra cosa.",
+      "No me meto en esos rollos, bro. Prueba preguntándome otra cosa más sana."
+    ]
+  },
   "research": {
     "enabled": true,
     "maxSentences": 2,
     "templates": [
       "Según {SOURCE}: {INFO}",
-      "Esto es lo que encontré en {SOURCE}: {INFO}",
+      "Esto es lo que encontré pillando en {SOURCE}: {INFO}",
       "De acuerdo con {SOURCE}, {INFO}"
     ],
     "notFoundResponses": [
       "Busqué sobre '{TOPIC}' en Wikipedia, pero no encontré un artículo exacto.",
-      "No pillé información clara sobre '{TOPIC}', bro. Intenta escribirlo de otra forma."
+      "No pillé info clara sobre '{TOPIC}', bro. Intenta escribirlo de otra forma."
     ]
   },
   "fallbackResponses": [
-    "No entendí eso, bro. Prueba pedirme la hora, abrir apps o decirme 'averigua sobre...'.",
-    "Esa función aún no está en Diamant UI 1.0, pero pronto llegaré más lejos.",
-    "Comando no reconocido. Puedes decir: 'abre la calculadora', 'qué hora es' o 'averigua sobre Saturno'."
+    "No entendí eso muy bien, bro. Prueba pedirme la hora, abrir apps o decirme 'averigua sobre...'.",
+    "Esa función aún no está en Diamant UI 1.0, pero tranqui que voy sumando cosas.",
+    "Comando no pillado. Puedes decir: 'abre la calculadora', 'qué hora es' o 'averigua sobre Saturno'."
   ],
   "commands": [
     {
       "id": "greeting",
-      "keywords": ["hola", "buenos dias", "buenas tardes", "buenas noches", "hey diamant", "que tal", "ola"],
+      "keywords": ["hola", "buenos dias", "buenas tardes", "buenas noches", "hey diamant", "que tal", "ola", "buenas"],
       "responses": [
-        "¡Hola! Soy Diamant Assistant. ¿Qué hacemos hoy en duix?",
-        "¡Hey! Listo y a la orden. ¿En qué te ayudo?",
-        "¡Hola! Sistemas de Diamant UI 1.0 al 100%. Dime qué necesitas."
+        "¡Hola, bro! Soy Diamant Assistant. ¿Qué hacemos hoy en duix?",
+        "¡Hey! Todo ready y a la orden. ¿Qué te trae por aquí?",
+        "¡Hola! Sistemas de Diamant UI 1.0 al 100%. Dígame qué se ofrece."
       ],
       "actionCode": "NONE"
     },
@@ -35,8 +48,8 @@
       "id": "identity",
       "keywords": ["quien eres", "como te llamas", "que eres", "presentate"],
       "responses": [
-        "Soy Diamant Assistant, el asistente oficial integrado en duix y Diamant UI 1.0.",
-        "Me llamo Diamant Assistant. Estoy aquí para ayudarte rápido y sin rodeos dentro de duix."
+        "Soy Diamant Assistant, tu asistente de confianza metido en duix y Diamant UI 1.0.",
+        "Me llamo Diamant Assistant. Estoy aquí para apañarte rápido y sin rodeos en el sistema."
       ],
       "actionCode": "NONE"
     },
@@ -44,7 +57,26 @@
       "id": "capabilities",
       "keywords": ["que puedes hacer", "ayuda", "comandos", "funciones"],
       "responses": [
-        "Puedo abrir apps de duix (calculadora, bloc de notas, ajustes), darte la hora o fecha, contar un chiste e investigar temas con 'averigua sobre...'."
+        "Te cuento: puedo abrir apps de duix (como la calculadora o el bloc de notas), darte la hora, echar un cacho con chistes o investigar datos con 'averigua sobre...'."
+      ],
+      "actionCode": "NONE"
+    },
+    {
+      "id": "reaction_relief",
+      "keywords": ["menos mal", "que bueno", "ufa", "menos mal que", "bueno saberlo", "menos mal bro"],
+      "responses": [
+        "¡Jaja, sí! Hay que mantener limpio duix de cosas raras.",
+        "Sisa, por algo estamos blindados por seguridad por acá.",
+        "Claro que sí, bro. ¡Hay que andar con cuidado!"
+      ],
+      "actionCode": "NONE"
+    },
+    {
+      "id": "how_are_you",
+      "keywords": ["como estas", "que tal todo", "todo bien", "como va"],
+      "responses": [
+        "¡Impecable por acá, bro! Con los circuitos al rojo vivo pero al 100%. ¿Y tú?",
+        "Todo joya por duix. ¿En qué te puedo apañar hoy?"
       ],
       "actionCode": "NONE"
     },
@@ -52,8 +84,8 @@
       "id": "get_time",
       "keywords": ["que hora es", "dime la hora", "hora actual", "la hora"],
       "responses": [
-        "Son las {TIME}.",
-        "Ahora mismo son las {TIME} en duix."
+        "Son las {TIME}, bro.",
+        "Ahora mismo van a ser las {TIME} en duix."
       ],
       "actionCode": "NONE"
     },
@@ -61,7 +93,7 @@
       "id": "get_date",
       "keywords": ["que dia es", "fecha", "en que fecha estamos", "hoy es"],
       "responses": [
-        "Hoy estamos a {DATE}."
+        "Hoy estamos a {DATE}, anotado."
       ],
       "actionCode": "NONE"
     },
@@ -69,8 +101,8 @@
       "id": "open_calc",
       "keywords": ["calculadora", "abre la calculadora", "calcular", "calc"],
       "responses": [
-        "Abriendo la calculadora.",
-        "Listo, aquí tienes la calculadora."
+        "Abriendo la calculadora al tiro.",
+        "Listo, sacando cuentas aquí tienes la calculadora."
       ],
       "actionCode": "OPEN_CALC"
     },
@@ -78,8 +110,8 @@
       "id": "open_notepad",
       "keywords": ["bloc de notas", "notas", "notepad", "apuntar"],
       "responses": [
-        "Abriendo el bloc de notas.",
-        "Aquí tienes donde anotar."
+        "Abriendo el bloc de notas para que apuntes tus ideas.",
+        "Aquí tienes donde anotar lo que quieras."
       ],
       "actionCode": "OPEN_NOTEPAD"
     },
@@ -88,7 +120,7 @@
       "keywords": ["ajustes", "configuracion", "opciones", "panel de control"],
       "responses": [
         "Abriendo los ajustes de duix.",
-        "Entrando a la configuración del sistema."
+        "Entrando al panel de configuración del sistema."
       ],
       "actionCode": "OPEN_SETTINGS"
     },
@@ -104,10 +136,10 @@
     },
     {
       "id": "thanks",
-      "keywords": ["gracias", "muchas gracias", "te pasaste", "vale"],
+      "keywords": ["gracias", "muchas gracias", "te pasaste", "vale", "buena"],
       "responses": [
-        "¡Para eso estamos! Avísame si necesitas algo más.",
-        "De nada, bro. Aquí sigo pendiente."
+        "¡De nada, bro! Para eso estamos.",
+        "¡Te pasaste tú! Avísame cualquier cosa."
       ],
       "actionCode": "NONE"
     }

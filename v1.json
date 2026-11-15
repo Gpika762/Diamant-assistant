@@ -63,11 +63,11 @@
     },
     {
       "id": "reaction_relief",
-      "keywords": ["menos mal", "que bueno", "ufa", "menos mal que", "bueno saberlo", "menos mal bro"],
+      "keywords": ["menos mal", "que bueno", "ufa", "menos mal que", "bueno saberlo", "menos mal bro", "menos mal que lo bloqueaste"],
       "responses": [
-        "¡Jaja, sí! Hay que mantener limpio duix de cosas raras.",
-        "Sisa, por algo estamos blindados por seguridad por acá.",
-        "Claro que sí, bro. ¡Hay que andar con cuidado!"
+        "¡Jaja, sí! Hay que mantener limpio y seguro duix de cosas raras.",
+        "Sisa, por algo estamos blindados por seguridad por acá, bro.",
+        "Claro que sí, ¡hay que andar con cuidado y los circuitos protegidos!"
       ],
       "actionCode": "NONE"
     },

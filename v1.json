@@ -1,14 +1,14 @@
 {
   "version": "1.0",
   "assistantName": "Diamant Assistant",
+  "thinkingDelayMs": 1200,
   "research": {
     "enabled": true,
     "maxSentences": 2,
     "templates": [
       "Según {SOURCE}: {INFO}",
       "Esto es lo que encontré en {SOURCE}: {INFO}",
-      "De acuerdo con {SOURCE}, {INFO}",
-      "Investigué en {SOURCE} sobre {TITLE} y dice esto: {INFO}"
+      "De acuerdo con {SOURCE}, {INFO}"
     ],
     "notFoundResponses": [
       "Busqué sobre '{TOPIC}' en Wikipedia, pero no encontré un artículo exacto.",

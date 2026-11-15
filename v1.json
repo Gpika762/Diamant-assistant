@@ -1,0 +1,115 @@
+{
+  "version": "1.0",
+  "assistantName": "Diamant Assistant",
+  "research": {
+    "enabled": true,
+    "maxSentences": 2,
+    "templates": [
+      "Según {SOURCE}: {INFO}",
+      "Esto es lo que encontré en {SOURCE}: {INFO}",
+      "De acuerdo con {SOURCE}, {INFO}",
+      "Investigué en {SOURCE} sobre {TITLE} y dice esto: {INFO}"
+    ],
+    "notFoundResponses": [
+      "Busqué sobre '{TOPIC}' en Wikipedia, pero no encontré un artículo exacto.",
+      "No pillé información clara sobre '{TOPIC}', bro. Intenta escribirlo de otra forma."
+    ]
+  },
+  "fallbackResponses": [
+    "No entendí eso, bro. Prueba pedirme la hora, abrir apps o decirme 'averigua sobre...'.",
+    "Esa función aún no está en Diamant UI 1.0, pero pronto llegaré más lejos.",
+    "Comando no reconocido. Puedes decir: 'abre la calculadora', 'qué hora es' o 'averigua sobre Saturno'."
+  ],
+  "commands": [
+    {
+      "id": "greeting",
+      "keywords": ["hola", "buenos dias", "buenas tardes", "buenas noches", "hey diamant", "que tal", "ola"],
+      "responses": [
+        "¡Hola! Soy Diamant Assistant. ¿Qué hacemos hoy en duix?",
+        "¡Hey! Listo y a la orden. ¿En qué te ayudo?",
+        "¡Hola! Sistemas de Diamant UI 1.0 al 100%. Dime qué necesitas."
+      ],
+      "actionCode": "NONE"
+    },
+    {
+      "id": "identity",
+      "keywords": ["quien eres", "como te llamas", "que eres", "presentate"],
+      "responses": [
+        "Soy Diamant Assistant, el asistente oficial integrado en duix y Diamant UI 1.0.",
+        "Me llamo Diamant Assistant. Estoy aquí para ayudarte rápido y sin rodeos dentro de duix."
+      ],
+      "actionCode": "NONE"
+    },
+    {
+      "id": "capabilities",
+      "keywords": ["que puedes hacer", "ayuda", "comandos", "funciones"],
+      "responses": [
+        "Puedo abrir apps de duix (calculadora, bloc de notas, ajustes), darte la hora o fecha, contar un chiste e investigar temas con 'averigua sobre...'."
+      ],
+      "actionCode": "NONE"
+    },
+    {
+      "id": "get_time",
+      "keywords": ["que hora es", "dime la hora", "hora actual", "la hora"],
+      "responses": [
+        "Son las {TIME}.",
+        "Ahora mismo son las {TIME} en duix."
+      ],
+      "actionCode": "NONE"
+    },
+    {
+      "id": "get_date",
+      "keywords": ["que dia es", "fecha", "en que fecha estamos", "hoy es"],
+      "responses": [
+        "Hoy estamos a {DATE}."
+      ],
+      "actionCode": "NONE"
+    },
+    {
+      "id": "open_calc",
+      "keywords": ["calculadora", "abre la calculadora", "calcular", "calc"],
+      "responses": [
+        "Abriendo la calculadora.",
+        "Listo, aquí tienes la calculadora."
+      ],
+      "actionCode": "OPEN_CALC"
+    },
+    {
+      "id": "open_notepad",
+      "keywords": ["bloc de notas", "notas", "notepad", "apuntar"],
+      "responses": [
+        "Abriendo el bloc de notas.",
+        "Aquí tienes donde anotar."
+      ],
+      "actionCode": "OPEN_NOTEPAD"
+    },
+    {
+      "id": "open_settings",
+      "keywords": ["ajustes", "configuracion", "opciones", "panel de control"],
+      "responses": [
+        "Abriendo los ajustes de duix.",
+        "Entrando a la configuración del sistema."
+      ],
+      "actionCode": "OPEN_SETTINGS"
+    },
+    {
+      "id": "joke",
+      "keywords": ["chiste", "cuentame un chiste", "hazme reir", "algo gracioso"],
+      "responses": [
+        "¿Qué le dice un bit al otro? Nos vemos en el bus.",
+        "Hay 10 tipos de personas en el mundo: las que entienden binario y las que no.",
+        "¿Por qué los programadores confunden Halloween con Navidad? Porque OCT 31 es igual a DEC 25."
+      ],
+      "actionCode": "NONE"
+    },
+    {
+      "id": "thanks",
+      "keywords": ["gracias", "muchas gracias", "te pasaste", "vale"],
+      "responses": [
+        "¡Para eso estamos! Avísame si necesitas algo más.",
+        "De nada, bro. Aquí sigo pendiente."
+      ],
+      "actionCode": "NONE"
+    }
+  ]
+}

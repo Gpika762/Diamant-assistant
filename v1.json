@@ -1,7 +1,7 @@
 {
-  "version": "1.3.0",
+  "version": "1.4.0",
   "assistantName": "Diamant Assistant",
-  "thinkingDelayMs": 350,
+  "thinkingDelayMs": 300,
   "userPreferences": {
     "nickname": "bro",
     "osName": "duix / Diamant UI"
@@ -22,10 +22,10 @@
   "research": {
     "enabled": true,
     "maxSentences": 2,
-    "sources": ["Wikipedia", "Google (Español)", "DuckDuckGo Web"],
+    "sources": ["Wikipedia", "Google", "Wikidata"],
     "templates": [
       "Según {SOURCE}: {INFO}",
-      "Esto es lo que encontré pillando en {SOURCE}: {INFO}",
+      "Esto es lo que encontré en {SOURCE}: {INFO}",
       "De acuerdo con {SOURCE}, {INFO}"
     ],
     "notFoundResponses": [
@@ -34,8 +34,8 @@
     ]
   },
   "fallbackResponses": [
-    "No entendí eso muy bien, {NICKNAME}. Prueba pedirme la hora, un dato retro o decirme 'averigua sobre...'.",
-    "Esa función aún no está mapeada, pero puedes probar 'abre el explorador' o 'cuánto es 5 elevado a 3'.",
+    "No entendí eso muy bien, {NICKNAME}. Prueba pedirme el clima, un dato retro o decirme 'averigua detallado sobre...'.",
+    "Esa función aún no está mapeada, pero puedes probar 'clima en Tokio' o 'cuánto es 5 elevado a 3'.",
     "Comando no pillado en duix. Prueba: 'dato retro', 'qué hora es' o 'averigua sobre el Galaxy S2'."
   ],
   "commands": [
@@ -44,7 +44,7 @@
       "isRegex": false,
       "keywords": ["hola", "buenos dias", "buenas tardes", "buenas noches", "hey diamant", "que tal", "ola", "buenas"],
       "responses": [
-        "¡Hola, {NICKNAME}! Soy Diamant Assistant v1.3.0. ¿Qué hacemos hoy en duix?",
+        "¡Hola, {NICKNAME}! Soy Diamant Assistant v1.4.0. ¿Qué hacemos hoy en duix?",
         "¡Hey {NICKNAME}! Todo ready y a la orden. ¿Qué te trae por aquí?",
         "¡Hola! Sistemas de Diamant UI al 100%. Dígame qué se ofrece, bro."
       ],
@@ -55,6 +55,7 @@
       "isRegex": true,
       "keywords": [
         "^busca en google\\s+(.+)$",
+        "^buscar en google\\s+(.+)$",
         "^abre en el navegador\\s+(.+)$"
       ],
       "responses": [
@@ -80,7 +81,7 @@
       "isRegex": false,
       "keywords": ["quien eres", "como te llamas", "que eres", "presentate"],
       "responses": [
-        "Soy Diamant Assistant v1.3.0, tu asistente inteligente con motor Regex y memoria local en duix.",
+        "Soy Diamant Assistant v1.4.0, tu asistente inteligente con tarjetas visuales, clima en vivo y memoria local en duix.",
         "Me llamo Diamant Assistant. Estoy aquí para apañarte rápido en Diamant UI."
       ],
       "actionCode": "NONE"
@@ -90,7 +91,7 @@
       "isRegex": false,
       "keywords": ["que puedes hacer", "ayuda", "comandos", "funciones"],
       "responses": [
-        "Puedo aprender datos sobre ti ('recuerda que me llamo...', 'recuerda que me gusta...'), resolver cálculos, abrir búsquedas en el navegador ('busca en google...'), soltar datos retro, abrir apps de duix e investigar cualquier tema."
+        "Puedo mostrarte el clima en vivo ('clima en...'), investigar temas cortos o a fondo ('averigua detallado sobre...'), recordar datos tuyos ('recuerda que me llamo...'), resolver cálculos y abrir apps de duix."
       ],
       "actionCode": "NONE"
     },

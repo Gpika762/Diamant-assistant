@@ -1,7 +1,11 @@
 {
-  "version": "1.2.5",
+  "version": "1.3.0",
   "assistantName": "Diamant Assistant",
-  "thinkingDelayMs": 400,
+  "thinkingDelayMs": 350,
+  "userPreferences": {
+    "nickname": "bro",
+    "osName": "duix / Diamant UI"
+  },
   "safetyFilter": {
     "enabled": true,
     "blockedKeywords": [
@@ -10,7 +14,7 @@
       "suicidio", "matar", "gore", "sangre", "violencia"
     ],
     "blockResponses": [
-      "Alto ahí, bro. No puedo investigar sobre ese tema por seguridad en duix.",
+      "Alto ahí, {NICKNAME}. No puedo investigar sobre ese tema por seguridad en duix.",
       "Ese tema está bloqueado en Diamant Assistant, mejor hablemos de otra cosa.",
       "No me meto en esos rollos, bro. Prueba preguntándome otra cosa más sana."
     ]
@@ -30,92 +34,100 @@
     ]
   },
   "fallbackResponses": [
-    "No entendí eso muy bien, bro. Prueba pedirme la hora, abrir apps o decirme 'averigua sobre...'.",
-    "Esa función ya está integrada en el núcleo, pero prueba formulándolo de otra forma.",
-    "Comando no pillado en duix. Puedes decir: 'abre la calculadora', 'qué hora es' o 'averigua sobre el s6 edge'."
+    "No entendí eso muy bien, {NICKNAME}. Prueba pedirme la hora, un dato retro o decirme 'averigua sobre...'.",
+    "Esa función aún no está mapeada, pero puedes probar 'abre el explorador' o 'cuánto es 5 elevado a 3'.",
+    "Comando no pillado en duix. Prueba: 'dato retro', 'qué hora es' o 'averigua sobre el Galaxy S2'."
   ],
   "commands": [
     {
       "id": "greeting",
+      "isRegex": false,
       "keywords": ["hola", "buenos dias", "buenas tardes", "buenas noches", "hey diamant", "que tal", "ola", "buenas"],
       "responses": [
-        "¡Hola, bro! Soy Diamant Assistant. ¿Qué hacemos hoy en duix?",
-        "¡Hey! Todo ready y a la orden. ¿Qué te trae por aquí?",
-        "¡Hola! Sistemas de Diamant UI al 100%. Dígame qué se ofrece."
+        "¡Hola, {NICKNAME}! Soy Diamant Assistant v1.3.0. ¿Qué hacemos hoy en duix?",
+        "¡Hey {NICKNAME}! Todo ready y a la orden. ¿Qué te trae por aquí?",
+        "¡Hola! Sistemas de Diamant UI al 100%. Dígame qué se ofrece, bro."
+      ],
+      "actionCode": "NONE"
+    },
+    {
+      "id": "web_search_regex",
+      "isRegex": true,
+      "keywords": [
+        "^busca en google\\s+(.+)$",
+        "^abre en el navegador\\s+(.+)$"
+      ],
+      "responses": [
+        "Abriendo tu búsqueda sobre '{MATCH_1}' directamente en el navegador, {NICKNAME}."
+      ],
+      "actionCode": "OPEN_URL",
+      "actionPayload": "{MATCH_1}"
+    },
+    {
+      "id": "retro_easter_egg",
+      "isRegex": false,
+      "keywords": ["dato retro", "easter egg", "consola antigua", "curiosidad retro", "dato friki"],
+      "responses": [
+        "Dato retro: La pantalla de la Game Boy Color podía mostrar hasta 56 colores simultáneos de una paleta de 32.768, sin retroiluminación.",
+        "Dato retro: El Samsung Galaxy S6 Edge de 2015 fue el primer teléfono en el mundo con pantalla curva en ambos bordes laterales.",
+        "Dato retro: El GamePad de la Nintendo Wii U transmite video de forma inalámbrica mediante un protocolo personalizado basado en Wi-Fi de 5 GHz casi sin latencia.",
+        "Dato retro: El mítico reloj Casio F-91W lanzado en 1989 tiene una batería CR2016 que dura más de 7 años de uso continuo."
       ],
       "actionCode": "NONE"
     },
     {
       "id": "identity",
+      "isRegex": false,
       "keywords": ["quien eres", "como te llamas", "que eres", "presentate"],
       "responses": [
-        "Soy Diamant Assistant, tu asistente de confianza metido en duix y Diamant UI v1.2.5.",
-        "Me llamo Diamant Assistant. Estoy aquí para apañarte rápido y sin rodeos en el sistema."
+        "Soy Diamant Assistant v1.3.0, tu asistente inteligente con motor Regex y memoria local en duix.",
+        "Me llamo Diamant Assistant. Estoy aquí para apañarte rápido en Diamant UI."
       ],
       "actionCode": "NONE"
     },
     {
       "id": "capabilities",
+      "isRegex": false,
       "keywords": ["que puedes hacer", "ayuda", "comandos", "funciones"],
       "responses": [
-        "Te cuento: puedo abrir apps de duix (como calculadora, bloc de notas, explorador o consola), darte la hora, echar un cacho con chistes o investigar datos con 'averigua sobre...'."
-      ],
-      "actionCode": "NONE"
-    },
-    {
-      "id": "galaxy_s6_edge",
-      "keywords": ["galaxy s6 edge", "s6 edge", "s6"],
-      "responses": [
-        "¡El Samsung Galaxy S6 Edge es una verdadera joya! Es un clásico inolvidable en tu colección con esa pantalla curva doble que marcó historia."
-      ],
-      "actionCode": "NONE"
-    },
-    {
-      "id": "galaxy_a36",
-      "keywords": ["galaxy a36", "a36 5g", "a36"],
-      "responses": [
-        "¡Ese es el móvil principal! El Galaxy A36 5G de 128 gigas rinde increíblemente bien en el día a día."
-      ],
-      "actionCode": "NONE"
-    },
-    {
-      "id": "nintendo_wiiu",
-      "keywords": ["wii u", "woiiu", "pretendo"],
-      "responses": [
-        "¡La Wii U de 32 GB liberada conectada a la red Pretendo es todo un vicio para jugar en línea hoy en día!"
+        "Puedo aprender datos sobre ti ('recuerda que me llamo...', 'recuerda que me gusta...'), resolver cálculos, abrir búsquedas en el navegador ('busca en google...'), soltar datos retro, abrir apps de duix e investigar cualquier tema."
       ],
       "actionCode": "NONE"
     },
     {
       "id": "reaction_relief",
+      "isRegex": false,
       "keywords": ["menos mal", "que bueno", "ufa", "menos mal que", "bueno saberlo", "menos mal bro", "menos mal que lo bloqueaste"],
       "responses": [
         "¡Jaja, sí! Hay que mantener limpio y seguro duix de cosas raras.",
-        "Sisa, por algo estamos blindados por seguridad por acá, bro.",
+        "Sisa, por algo estamos blindados por seguridad por acá, {NICKNAME}.",
         "Claro que sí, ¡hay que andar con cuidado y los circuitos protegidos!"
       ],
       "actionCode": "NONE"
     },
     {
       "id": "how_are_you",
+      "isRegex": false,
       "keywords": ["como estas", "que tal todo", "todo bien", "como va"],
       "responses": [
-        "¡Impecable por acá, bro! Con los circuitos al rojo vivo pero al 100%. ¿Y tú?",
+        "¡Impecable por acá, {NICKNAME}! Con los circuitos al rojo vivo pero al 100%. ¿Y tú?",
         "Todo joya por duix. ¿En qué te puedo apañar hoy?"
       ],
       "actionCode": "NONE"
     },
     {
       "id": "get_time",
+      "isRegex": false,
       "keywords": ["que hora es", "dime la hora", "hora actual", "la hora"],
       "responses": [
-        "Son las {TIME}, bro.",
-        "Ahora mismo van a ser las {TIME} en duix."
+        "Son las {TIME}, {NICKNAME}.",
+        "Ahora mismo son las {TIME} en duix."
       ],
       "actionCode": "NONE"
     },
     {
       "id": "get_date",
+      "isRegex": false,
       "keywords": ["que dia es", "fecha", "en que fecha estamos", "hoy es"],
       "responses": [
         "Hoy estamos a {DATE}, anotado."
@@ -124,24 +136,27 @@
     },
     {
       "id": "open_calc",
+      "isRegex": false,
       "keywords": ["calculadora", "abre la calculadora", "calcular", "calc"],
       "responses": [
-        "Abriendo la calculadora al tiro.",
+        "Abriendo la calculadora al tiro, {NICKNAME}.",
         "Listo, sacando cuentas aquí tienes la calculadora."
       ],
       "actionCode": "OPEN_CALC"
     },
     {
       "id": "open_notepad",
+      "isRegex": false,
       "keywords": ["bloc de notas", "notas", "notepad", "apuntar"],
       "responses": [
         "Abriendo el bloc de notas para que apuntes tus ideas.",
-        "Aquí tienes donde anotar lo que quieras."
+        "Aquí tienes donde anotar lo que quieras, {NICKNAME}."
       ],
       "actionCode": "OPEN_NOTEPAD"
     },
     {
       "id": "open_explorer",
+      "isRegex": false,
       "keywords": ["explorador", "archivos", "carpeta", "mi pc"],
       "responses": [
         "Abriendo el explorador de archivos de duix."
@@ -150,28 +165,32 @@
     },
     {
       "id": "open_settings",
+      "isRegex": false,
       "keywords": ["ajustes", "configuracion", "opciones", "panel de control"],
       "responses": [
         "Abriendo los ajustes de duix.",
-        "Entrando al panel de configuración del sistema."
+        "Entrando al panel de configuración del sistema, {NICKNAME}."
       ],
       "actionCode": "OPEN_SETTINGS"
     },
     {
       "id": "joke",
+      "isRegex": false,
       "keywords": ["chiste", "cuentame un chiste", "hazme reir", "algo gracioso"],
       "responses": [
         "¿Qué le dice un bit al otro? Nos vemos en el bus.",
         "Hay 10 tipos de personas en el mundo: las que entienden binario y las que no.",
-        "¿Por qué los programadores confunden Halloween con Navidad? Porque OCT 31 es igual a DEC 25."
+        "¿Por qué los programadores confunden Halloween con Navidad? Porque OCT 31 es igual a DEC 25.",
+        "¿Cuál es el colmo de un desarrollador de C#? No tener clase."
       ],
       "actionCode": "NONE"
     },
     {
       "id": "thanks",
+      "isRegex": false,
       "keywords": ["gracias", "muchas gracias", "te pasaste", "vale", "buena"],
       "responses": [
-        "¡De nada, bro! Para eso estamos.",
+        "¡De nada, {NICKNAME}! Para eso estamos.",
         "¡Te pasaste tú! Avísame cualquier cosa."
       ],
       "actionCode": "NONE"

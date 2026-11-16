@@ -1,7 +1,7 @@
 {
-  "version": "1.0",
+  "version": "1.2.5",
   "assistantName": "Diamant Assistant",
-  "thinkingDelayMs": 1200,
+  "thinkingDelayMs": 400,
   "safetyFilter": {
     "enabled": true,
     "blockedKeywords": [
@@ -18,7 +18,7 @@
   "research": {
     "enabled": true,
     "maxSentences": 2,
-    "sources": ["Wikipedia", "DuckDuckGo Web"],
+    "sources": ["Wikipedia", "Google (Español)", "DuckDuckGo Web"],
     "templates": [
       "Según {SOURCE}: {INFO}",
       "Esto es lo que encontré pillando en {SOURCE}: {INFO}",
@@ -31,8 +31,8 @@
   },
   "fallbackResponses": [
     "No entendí eso muy bien, bro. Prueba pedirme la hora, abrir apps o decirme 'averigua sobre...'.",
-    "Esa función aún no está en Diamant UI 1.0, pero tranqui que voy sumando cosas.",
-    "Comando no pillado. Puedes decir: 'abre la calculadora', 'qué hora es' o 'averigua sobre Saturno'."
+    "Esa función ya está integrada en el núcleo, pero prueba formulándolo de otra forma.",
+    "Comando no pillado en duix. Puedes decir: 'abre la calculadora', 'qué hora es' o 'averigua sobre el s6 edge'."
   ],
   "commands": [
     {
@@ -41,7 +41,7 @@
       "responses": [
         "¡Hola, bro! Soy Diamant Assistant. ¿Qué hacemos hoy en duix?",
         "¡Hey! Todo ready y a la orden. ¿Qué te trae por aquí?",
-        "¡Hola! Sistemas de Diamant UI 1.0 al 100%. Dígame qué se ofrece."
+        "¡Hola! Sistemas de Diamant UI al 100%. Dígame qué se ofrece."
       ],
       "actionCode": "NONE"
     },
@@ -49,7 +49,7 @@
       "id": "identity",
       "keywords": ["quien eres", "como te llamas", "que eres", "presentate"],
       "responses": [
-        "Soy Diamant Assistant, tu asistente de confianza metido en duix y Diamant UI 1.0.",
+        "Soy Diamant Assistant, tu asistente de confianza metido en duix y Diamant UI v1.2.5.",
         "Me llamo Diamant Assistant. Estoy aquí para apañarte rápido y sin rodeos en el sistema."
       ],
       "actionCode": "NONE"
@@ -58,7 +58,31 @@
       "id": "capabilities",
       "keywords": ["que puedes hacer", "ayuda", "comandos", "funciones"],
       "responses": [
-        "Te cuento: puedo abrir apps de duix (como la calculadora o el bloc de notas), darte la hora, echar un cacho con chistes o investigar datos con 'averigua sobre...'."
+        "Te cuento: puedo abrir apps de duix (como calculadora, bloc de notas, explorador o consola), darte la hora, echar un cacho con chistes o investigar datos con 'averigua sobre...'."
+      ],
+      "actionCode": "NONE"
+    },
+    {
+      "id": "galaxy_s6_edge",
+      "keywords": ["galaxy s6 edge", "s6 edge", "s6"],
+      "responses": [
+        "¡El Samsung Galaxy S6 Edge es una verdadera joya! Es un clásico inolvidable en tu colección con esa pantalla curva doble que marcó historia."
+      ],
+      "actionCode": "NONE"
+    },
+    {
+      "id": "galaxy_a36",
+      "keywords": ["galaxy a36", "a36 5g", "a36"],
+      "responses": [
+        "¡Ese es el móvil principal! El Galaxy A36 5G de 128 gigas rinde increíblemente bien en el día a día."
+      ],
+      "actionCode": "NONE"
+    },
+    {
+      "id": "nintendo_wiiu",
+      "keywords": ["wii u", "woiiu", "pretendo"],
+      "responses": [
+        "¡La Wii U de 32 GB liberada conectada a la red Pretendo es todo un vicio para jugar en línea hoy en día!"
       ],
       "actionCode": "NONE"
     },
@@ -115,6 +139,14 @@
         "Aquí tienes donde anotar lo que quieras."
       ],
       "actionCode": "OPEN_NOTEPAD"
+    },
+    {
+      "id": "open_explorer",
+      "keywords": ["explorador", "archivos", "carpeta", "mi pc"],
+      "responses": [
+        "Abriendo el explorador de archivos de duix."
+      ],
+      "actionCode": "OPEN_EXPLORER"
     },
     {
       "id": "open_settings",
